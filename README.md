@@ -64,7 +64,7 @@ spec:
     spec:
       containers:
       - name: hello-world-pod
-        image: harriswalt/springboot
+        image: tariq3455/springboot
         ports:
         - containerPort: 8080
  ```
@@ -223,19 +223,19 @@ mvn clean package
 === Build Docker Image
 
 ```
-docker image build -t harriswalt/spring-boot:latest .
+docker image build -t tariq3455/spring-boot:latest .
 ```
 
 === Push Docker Image
 
 ```
-docker image push harriswalt/spring-boot:latest
+docker image push tariq3455/spring-boot:latest
 ```
 
 === Run Docker Container
 
 ```
-docker container run -d --name hello-world -p 8080:8080 harriswalt/spring-boot:latest
+docker container run -d --name hello-world -p 8080:8080 tariq3455/spring-boot:latest
 ```
 
 === Test Application
