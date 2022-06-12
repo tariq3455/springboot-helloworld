@@ -198,69 +198,69 @@ https://github.com/xxxxxxxxxxx/hello-world.git
 - Click `apply` and `save`. Note that the script `Jenkinsfile` should be placed under root folder of repo.
 
 
-== CLI
+>> CLI
 
-=== Run App
+>>> Run App
 
 ```
 mvn spring-boot:run
 ```
 
-=== Test Application
+>>> Test Application
 
 ```
 curl http://localhost:8080
 ```
 
-== Docker
+>> Docker
 
-=== Build Application
+>>> Build Application
 
 ```
 mvn clean package
 ```
 
-=== Build Docker Image
+>>> Build Docker Image
 
 ```
 docker image build -t tariq3455/spring-boot:latest .
 ```
 
-=== Push Docker Image
+>>> Push Docker Image
 
 ```
 docker image push tariq3455/spring-boot:latest
 ```
 
-=== Run Docker Container
+>>> Run Docker Container
 
 ```
 docker container run -d --name hello-world -p 8080:8080 tariq3455/spring-boot:latest
 ```
 
-=== Test Application
+>>> Test Application
 
 ```
 curl http://localhost:8080
 ```
 
-=== Delete Docker Container
+>>> Delete Docker Container
 
 ```
 docker container rm -f hello-world
 ```
 
-== Kubernetes
+>> Kubernetes
 
-==Create AWS EKS cluster
+>> Create AWS EKS cluster
 ```
 eksctl create cluster --region us-east-1 --zones us-east-1a,us-east-1b,us-east-1c --node-type t2.medium --nodes 1 --nodes-min 1 --nodes-max 1 --name my-cluster
 ```
-==Create ingress controller
+>> Create ingress controller
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.2.0/deploy/static/provider/cloud/deploy.yaml
 ```
-=== Create Deployment
+>>> Create Deployment
 
 ```
 kubectl apply -f deployment.yml
@@ -268,13 +268,13 @@ kubectl apply -f service.yml
 kubectl apply -f ingress.yaml
 ```
 
-=== Test Application
+>>> Test Application
 
 ```
 curl http://`kubectl get svc hello-world-service -o jsonpath={.status.loadBalancer.ingress[0].hostname}`
 ```
 
-=== Delete Deployment
+>>> Delete Deployment
 
 ```
 kubectl delete -f deployment.yml
@@ -282,7 +282,7 @@ kubectl delete -f service.yml
 kubectl delete -f ingress.yaml
 
 ```
-==Delete EKS 
+>> Delete EKS 
 ```
 ./eksctl delete cluster my-cluster
 ```
